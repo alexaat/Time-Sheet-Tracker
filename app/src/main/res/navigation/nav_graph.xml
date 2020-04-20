@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/listFragment">
+
+    <fragment
+        android:id="@+id/listFragment"
+        android:name="com.alexaat.timesheettracker.fragments.ListFragment"
+        android:label="@string/list_fragment_title" >
+        <action
+            android:id="@+id/action_listFragment_to_workEndFragment"
+            app:destination="@id/workEndFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/aboutFragment"
+        android:name="com.alexaat.timesheettracker.fragments.AboutFragment"
+        android:label="@string/about_fragment_title"
+        tools:layout="@layout/fragment_about" />
+    <fragment
+        android:id="@+id/rulesFragment"
+        android:name="com.alexaat.timesheettracker.fragments.RulesFragment"
+        android:label="@string/rules_fragment_title"
+        tools:layout="@layout/fragment_rules" />
+    <fragment
+        android:id="@+id/workEndFragment"
+        android:name="com.alexaat.timesheettracker.fragments.WorkEndFragment"
+        android:label="@string/work_end_fragment_title" >
+        <argument
+            android:name="workDayId"
+            app:argType="long" />
+        <action
+            android:id="@+id/action_workEndFragment_to_listFragment"
+            app:destination="@id/listFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popUpTo="@id/listFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+</navigation>

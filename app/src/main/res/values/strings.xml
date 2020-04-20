@@ -1,0 +1,38 @@
+<resources>
+    <string name="app_name">Time Sheet Tracker</string>
+    <string name="clock_in">Clock In</string>
+    <string name="clock_out">Clock Out</string>
+    <string name="about">This app is designed for training purpose.
+    \nObjectives:
+    \n - learn NavigationUI(menu, Up button, Drawer, Navigation Graph, Slide Animation and Safe Args)
+    \n - learn ViewModel architecture
+    \n - create ViewModel using ViewModelFactory
+    \n - implement Observer Pattern
+    \n - data binding between ViewModel and layout.xml
+    \n - create Room database</string>
+    <string name="about_label">About</string>
+    <string name="rules">1. Press Clock In button when work start
+                       \n2. Press Clock Out button when work finish
+                       \n3. Press Delete All to delete all records</string>
+    <string name="rules_label">Rules</string>
+    <string name="time_in">Time In: </string>
+    <string name="time_out">Time Out: </string>
+    <string name="clock_in_format">Time In: %s</string>
+    <string name="clock_out_format">Time Out: %s</string>
+    <string name="description">Description: </string>
+    <string name="save">Save</string>
+    <string name="all_data_is_deleted">All data is deleted</string>
+    <string name="delete_all">Delete All</string>
+    <string name="about_fragment_title">About</string>
+    <string name="list_fragment_title">Work List</string>
+    <string name="rules_fragment_title">Rules</string>
+    <string name="work_end_fragment_title">Description</string>
+    <string name="time_at_work">Time at work:</string>
+    <string name="cannot_delete">Cannot delete while tracking is on</string>
+    <string name="clock_out_is_not_saved">Clock out is not saved</string>
+    <string name="navigation_title">Navigation</string>
+    <string name="drawer_header_image">drawer header image</string>
+    <string name="provide_work_description_here">provide work description here</string>
+
+
+</resources>
