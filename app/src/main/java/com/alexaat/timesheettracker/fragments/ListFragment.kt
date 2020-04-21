@@ -9,7 +9,6 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-
 import androidx.navigation.fragment.findNavController
 import com.alexaat.timesheettracker.R
 import com.alexaat.timesheettracker.database.WorkDayDatabase
@@ -43,11 +42,9 @@ class ListFragment : Fragment() {
         setHasOptionsMenu(true)
 
 
-        //val activity = checkNotNull(this.activity)
         val activity = this.requireActivity()
         val db = WorkDayDatabase.getInstance(activity).workDayDatabaseDao
         val viewModelFactory = ListFragmentViewModelFactory(activity, db)
-        //viewModel = ViewModelProviders.of(this, viewModelFactory).get(ListFragmentViewModel::class.java)
         viewModel = ViewModelProvider(this, viewModelFactory).get(ListFragmentViewModel::class.java)
 
         binding.viewModel = viewModel

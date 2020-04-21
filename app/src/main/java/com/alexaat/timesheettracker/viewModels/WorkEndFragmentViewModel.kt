@@ -55,6 +55,11 @@ class WorkEndFragmentViewModel(private val id:Long, private val database: WorkDa
     val showClockOutNotSavedSnackBar:LiveData<Boolean>
         get() = _showClockOutNotSavedSnackBar
 
+    // encapsulated show clockOut saved snackBar event
+    private var _showClockOutSavedSnackBar = MutableLiveData<Boolean>(false)
+    val showClockOutSavedSnackBar:LiveData<Boolean>
+        get() = _showClockOutSavedSnackBar
+
     init {
         _isSaveButtonEnabled.value = false
         _saveButtonAlpha.value = BUTTON_DISABLED
@@ -72,6 +77,7 @@ class WorkEndFragmentViewModel(private val id:Long, private val database: WorkDa
         today.description = description
         uiScope.launch{
             update(today)
+            _showClockOutSavedSnackBar.value = true
             _navigateToListFragment.value = true
         }
     }
@@ -91,6 +97,10 @@ class WorkEndFragmentViewModel(private val id:Long, private val database: WorkDa
 
     fun showClockOutNotSavedSnackBarComplete(){
         _showClockOutNotSavedSnackBar.value = false
+    }
+
+    fun showClockOutSavedSnackBarComplete(){
+        _showClockOutSavedSnackBar.value = false
     }
 
 

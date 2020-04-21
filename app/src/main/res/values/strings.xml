@@ -30,6 +30,7 @@
     <string name="time_at_work">Time at work:</string>
     <string name="cannot_delete">Cannot delete while tracking is on</string>
     <string name="clock_out_is_not_saved">Clock out is not saved</string>
+    <string name="clock_out_is_saved">Clock out saved</string>
     <string name="navigation_title">Navigation</string>
     <string name="drawer_header_image">drawer header image</string>
     <string name="provide_work_description_here">provide work description here</string>

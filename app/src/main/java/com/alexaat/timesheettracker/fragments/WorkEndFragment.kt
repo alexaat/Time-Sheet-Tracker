@@ -27,13 +27,10 @@ class WorkEndFragment : Fragment() {
 
         val binding: FragmentWorkEndBinding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_work_end, container, false)
-        //val argument = WorkEndFragmentArgs.fromBundle(arguments!!).workDayId
         val argument = WorkEndFragmentArgs.fromBundle(requireArguments()).workDayId
-        //val activity = checkNotNull(this.activity)
         val activity = this.requireActivity()
         val db = WorkDayDatabase.getInstance(activity).workDayDatabaseDao
         val viewModelFactory = WorkEndFragmentViewModelFactory(argument, db)
-        //viewModel = ViewModelProviders.of(this, viewModelFactory).get(WorkEndFragmentViewModel::class.java)
         viewModel = ViewModelProvider(this, viewModelFactory).get(WorkEndFragmentViewModel::class.java)
 
         binding.lifecycleOwner = this
@@ -58,9 +55,22 @@ class WorkEndFragment : Fragment() {
         viewModel.showClockOutNotSavedSnackBar.observe(viewLifecycleOwner, Observer {
             if(it){
                 this.view?.let{view->
-                    Snackbar.make(view, getString(R.string.clock_out_is_not_saved), Snackbar.LENGTH_SHORT).show()
+                    val bar = Snackbar.make(view, getString(R.string.clock_out_is_not_saved), Snackbar.LENGTH_SHORT)
+                    bar.view.setBackgroundResource(R.color.secondaryLightColor)
+                    bar.show()
                 }
                 viewModel.showClockOutNotSavedSnackBarComplete()
+            }
+        })
+
+        viewModel.showClockOutSavedSnackBar.observe(viewLifecycleOwner, Observer {
+            if(it){
+                this.view?.let{view->
+                   val bar =  Snackbar.make(view, getString(R.string.clock_out_is_saved), Snackbar.LENGTH_SHORT)
+                   bar.view.setBackgroundResource(R.color.primaryLightColor)
+                   bar.show()
+                }
+                viewModel.showClockOutSavedSnackBarComplete()
             }
         })
 
